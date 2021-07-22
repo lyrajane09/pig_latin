@@ -15,10 +15,43 @@ Documentation for the framework can be found on the [Lumen website](https://lume
 
 Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+# README
+Steps
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+1. Make sure to have phpmyadmin, xampp & mysql. Clone this repository and put it on htdocs folder C:\xampp\htdocs\.
+2. Make sure to install composer on your computer [https://getcomposer.org/](https://getcomposer.org/) 
+3. After cloning the project and installing the composer, go to the root folder of the project (pig_latin) and run this command
+```
+composer install
+````
+4. Create a pig_latin database.
+5. After creating a pig_latin database, start your xampp.
+6. Open the .env file on your IDE/Code editor and edit the code below, add your database name, database username and database password.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pig_latin
+DB_USERNAME=root
+DB_PASSWORD=
+```
+7. Go to your root folder of the project and run this command
+```
+php artisan migrate
+```
+```
+php artisan db:seed --class=PigLatinSeeder
+```
+```
+php artisan serve --port 2000
+```
+8. Open your favorite browser and go to this link [http://localhost:2000/](http://localhost:2000/)
+9. To test the sample pig latin words go to [http://localhost:2000/](http://localhost:2000/)
+10. To test/create a new pig latin word go to your postman and go to the post request and
+go to this url [http://localhost:2000/create](http://localhost:2000/create). Make sure
+to add the `word` request input on the body and hit the send button.
+![alt text](https://github.com/lyrajane09/pig_latin/blob/master/public/images/Capture.PNG?raw=true)
 
-## License
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
